@@ -17,11 +17,11 @@
   <header class="global-header">
     <div class="header-inner">
       <button class="brand" id="brandButton" aria-label="Smoke home"><span class="smoke-mark"><i></i><i></i><i></i></span><span>SMOKE</span></button>
-      <nav class="global-nav" aria-label="Main navigation"><a class="active" href="#store">STORE</a><a href="#store">COMMUNITY</a><a href="#store">ABOUT</a><a href="#store">SUPPORT</a></nav>
-      <div class="account-nav"><button id="installButton" class="install">⇩ Install Smoke</button><button>login</button><span>|</span><button>language ▾</button></div>
+      <nav class="global-nav" aria-label="Main navigation"><a class="active" href="#store">STORE</a><a href="#store" data-side-action="community">COMMUNITY</a><a href="#store" data-side-action="about">ABOUT</a><a href="#store" data-side-action="support">SUPPORT</a></nav>
+      <div class="account-nav"><button id="installButton" class="install">⇩ Install Smoke</button><button data-side-action="login">login</button><span>|</span><button data-side-action="language">language ▾</button></div>
     </div>
   </header>
-  <nav class="store-nav" aria-label="Store navigation"><div class="store-nav-inner"><div class="nav-links"><button>Your Store</button><button>New &amp; Noteworthy</button><button>Categories</button><button>Points Shop</button><button>News</button><button>Labs</button></div><form id="searchForm" class="search"><input id="searchInput" type="search" aria-label="Search the Smoke Store" placeholder="search the store"><button aria-label="Submit search">⌕</button></form></div></nav>
+  <nav class="store-nav" aria-label="Store navigation"><div class="store-nav-inner"><div class="nav-links"><button data-side-action="store">Your Store</button><button data-side-action="new">New &amp; Noteworthy</button><button data-side-action="categories">Categories</button><button data-side-action="points">Points Shop</button><button data-side-action="news">News</button><button data-side-action="labs">Labs</button></div><form id="searchForm" class="search"><input id="searchInput" type="search" aria-label="Search the Smoke Store" placeholder="search the store"><button aria-label="Submit search">⌕</button></form></div></nav>
   <main id="app" tabindex="-1"></main>
   <aside id="challengeWidget" class="challenge-widget" aria-live="polite"></aside>
   <div id="toastRegion" class="toast-region" aria-live="polite" aria-atomic="true"></div>
