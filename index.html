@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171d25">
+  <title>Smoke — Find Needle in a Haystack Simulator</title>
+  <meta name="description" content="Somewhere in this completely legitimate game storefront is the original Needle in a Haystack Simulator.">
+  <meta property="og:title" content="Find Needle in a Haystack Simulator Simulator">
+  <meta property="og:description" content="Somewhere in this completely legitimate game storefront is the original Needle in a Haystack Simulator.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/social-preview.svg">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="global-header">
+    <div class="header-inner">
+      <button class="brand" id="brandButton" aria-label="Smoke home"><span class="smoke-mark"><i></i><i></i><i></i></span><span>SMOKE</span></button>
+      <nav class="global-nav" aria-label="Main navigation"><a class="active" href="#store">STORE</a><a href="#store">COMMUNITY</a><a href="#store">ABOUT</a><a href="#store">SUPPORT</a></nav>
+      <div class="account-nav"><button id="installButton" class="install">⇩ Install Smoke</button><button>login</button><span>|</span><button>language ▾</button></div>
+    </div>
+  </header>
+  <nav class="store-nav" aria-label="Store navigation"><div class="store-nav-inner"><div class="nav-links"><button>Your Store</button><button>New &amp; Noteworthy</button><button>Categories</button><button>Points Shop</button><button>News</button><button>Labs</button></div><form id="searchForm" class="search"><input id="searchInput" type="search" aria-label="Search the Smoke Store" placeholder="search the store"><button aria-label="Submit search">⌕</button></form></div></nav>
+  <main id="app" tabindex="-1"></main>
+  <aside id="challengeWidget" class="challenge-widget" aria-live="polite"></aside>
+  <div id="toastRegion" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <div id="modalRoot"></div>
+  <footer><span>Smoke — There’s probably a game in here somewhere.</span><span>Smoke is a parody project and is not affiliated with Valve or Steam.</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
