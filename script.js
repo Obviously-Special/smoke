@@ -65,7 +65,7 @@ function formatTime(seconds) { const safe = Math.max(0, Math.floor(seconds)); re
 function elapsed() { return run.startTime ? (Date.now() - run.startTime) / 1000 : 0; }
 function showToast(message, type = "") { const toast = document.createElement("div"); toast.className = `toast ${type}`; toast.textContent = message; document.querySelector("#toastRegion").append(toast); setTimeout(() => toast.remove(), 3600); }
 function engage() { if (!run.started && !run.finished) { run.started = true; run.startTime = Date.now(); saveRun(); renderWidget(); } }
-function coverMarkup(game, className = "") { const seed = hashNumber(game.id); const style = game.coverStyle || choice(coverStyles, seed); const badge = game.title.match(/Remastered|Prologue|Classic|2026|Ultimate|Dating|Kart|Definitive|Origins/i); return `<div class="cover-art art-${style} ${className}" aria-label="Cover artwork for ${escapeHtml(game.title)}"><span class="cover-title">${escapeHtml(game.title)}</span>${badge ? `<span class="badge">${escapeHtml(badge[0].toUpperCase())}</span>` : ""}</div>`; }
+function coverMarkup(game, className = "") { const seed = hashNumber(game.id); const style = game.coverStyle || choice(coverStyles, seed); const photo = `assets/covers/hay-${String((seed % 5) + 1).padStart(2, "0")}.jpg`; const badge = game.title.match(/Remastered|Prologue|Classic|2026|Ultimate|Dating|Kart|Definitive|Origins/i); return `<div class="cover-art photo-cover art-${style} ${className}" style="--cover-photo:url('${photo}')" aria-label="Haystack cover artwork for ${escapeHtml(game.title)}"><span class="cover-title">${escapeHtml(game.title)}</span>${badge ? `<span class="badge">${escapeHtml(badge[0].toUpperCase())}</span>` : ""}</div>`; }
 function screenshotMarkup(variant = "") { return `<div class="screenshot ${variant}" aria-label="Procedural in-game screenshot"></div>`; }
 function priceMarkup(game) { return `<div class="card-price">${game.sale ? `<span class="discount">${game.sale}</span>` : ""}<span>${escapeHtml(game.price)}</span></div>`; }
 function selectFeature(seed = 0) { return catalog[(seed * 17 + 5) % catalog.length]; }
@@ -131,5 +131,20 @@ function installSmoke() { showToast("Installing Smoke…"); const toast = docume
 function setupEasterEggs() { document.querySelector("#brandButton").addEventListener("click", () => { logoClicks++; if (logoClicks === 7) { showToast("Please stop hitting the infrastructure."); logoClicks = 0; } go("#store"); }); document.querySelector("#installButton").addEventListener("click", installSmoke); document.addEventListener("keydown", event => { if (!CONFIG.enableEasterEggs) return; konami.push(event.key.toLowerCase()); konami = konami.slice(-10); const code = ["arrowup", "arrowup", "arrowdown", "arrowdown", "arrowleft", "arrowright", "arrowleft", "arrowright", "b", "a"]; if (konami.join(",") === code.join(",")) { document.querySelectorAll(".card-title,.listing-title,.cover-title").forEach(node => { node.dataset.old = node.textContent; node.textContent = "Needle in a Haystack Simulator"; }); showToast("Catalog normalization complete."); setTimeout(route, 3000); } }); document.addEventListener("keydown", event => { if (event.key === "Escape") closeModal(); }); }
 
 // INITIALIZATION
+document.body.classList.add("ui-refresh");
 document.querySelector("#searchForm").addEventListener("submit", submitSearch);
-setupEasterEggs(); route(); setInterval(updateTimer, 1000);
+setupEasterEggs(); setupInteractionPolish(); route(); setInterval(updateTimer, 1000);
+
+// Passive storefront controls are intentionally local, but never leave a dead button behind.
+function setupInteractionPolish() {
+  document.addEventListener("click", event => {
+    const navButton = event.target.closest(".nav-links button");
+    if (navButton) showToast(`${navButton.textContent.trim()} is currently experiencing tasteful smoke.`);
+    const action = event.target.closest(".action-row .secondary:not(.wishlist)");
+    if (action) {
+      const wasActive = action.classList.toggle("active");
+      action.textContent = wasActive ? (action.textContent.trim() === "Follow" ? "Following" : "Ignored") : (action.textContent.trim() === "Following" ? "Follow" : "Ignore");
+    }
+    if (event.target.closest(".gallery .screenshot")) showToast("Screenshot enlarged in your imagination.");
+  });
+}
