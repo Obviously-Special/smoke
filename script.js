@@ -101,7 +101,7 @@ function renderSearch(query) {
   app.innerHTML = `<div class="page"><div class="search-head"><h1>Search results for “${escapeHtml(query)}”</h1><p>${note || `${results.length} completely useful results`}</p></div><div class="store-layout"><aside class="sidebar"><h3>NARROW BY TAG</h3>${allTags.slice(0, 10).map(tag => `<a href="#search?q=${encodeURIComponent(tag)}">${tag}</a>`).join("")}</aside><section>${results.length ? results.map(game => `<article class="listing" data-game-id="${game.id}" tabindex="0" role="link">${coverMarkup(game)}<div class="listing-info"><div class="listing-title">${escapeHtml(game.title)}</div><div class="listing-meta">${escapeHtml(game.tags.join(", "))}<br>${escapeHtml(game.reviewSummary)} (${game.reviewCount.toLocaleString()})</div></div><div class="listing-price">${game.sale ? `<span class="discount">${game.sale}</span> ` : ""}${escapeHtml(game.price)}</div></article>`).join("") : `<div class="empty">There is nothing here. This is not evidence of anything.</div>`}</section></div></div>`;
   bindGameLinks(); renderWidget();
 }
-function submitSearch(event) { event.preventDefault(); const value = document.querySelector("#searchInput").value.trim(); if (!value) return; engage(); run.searches++; saveRun(); go(`#search?q=${encodeURIComponent(value)}`); }
+function submitSearch(event) { event.preventDefault(); const value = document.querySelector("#searchInput").value.trim(); if (!value) { showToast("Smoke Search requires at least one suspicious word."); return; } engage(); run.searches++; saveRun(); go(`#search?q=${encodeURIComponent(value)}`); }
 
 // GAME PAGE
 function renderGame(id) {
@@ -140,6 +140,10 @@ setupEasterEggs(); setupInteractionPolish(); route(); setInterval(updateTimer, 1
 // Passive storefront controls are intentionally local, but never leave a dead button behind.
 function setupInteractionPolish() {
   document.addEventListener("click", event => {
+    const globalLink = event.target.closest(".global-nav a");
+    if (globalLink) { event.preventDefault(); showToast(`${globalLink.textContent.trim()} is currently full of hay.`); }
+    const utilityButton = event.target.closest(".account-nav button:not(#installButton)");
+    if (utilityButton) showToast(utilityButton.textContent.trim().toLowerCase().startsWith("login") ? "Login is temporarily replaced by confidence." : "Language set to: Agricultural English.");
     const navButton = event.target.closest(".nav-links button");
     if (navButton) showToast(`${navButton.textContent.trim()} is currently experiencing tasteful smoke.`);
     const action = event.target.closest(".action-row .secondary:not(.wishlist)");
