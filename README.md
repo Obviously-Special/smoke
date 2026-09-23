@@ -42,6 +42,6 @@ To add a game, add a title to one of those lists. To fully hand-author an entry,
 
 Artwork and screenshots are procedural HTML/CSS rather than borrowed assets. Current-run progress lives in `sessionStorage`, so a refresh preserves it but closing the browser session normally does not. Smoke is a parody project and is not affiliated with Valve or Steam.
 
-## Haystack photo credits
+## Cover images
 
-The cover-photo rotation uses local, public-domain Wikimedia Commons downloads rather than hotlinks: [DPLA / U.S. National Archives](https://commons.wikimedia.org/wiki/File:Hay_Stacks_-_DPLA_-_8fac092b7318177b95e259981b1e3f37.jpg), [Library of Congress](https://commons.wikimedia.org/wiki/File:Haying_on_the_Riverside_Farm,_Huron,_S.D._LCCN2016650863.jpg), [U.S. National Archives](https://commons.wikimedia.org/wiki/File:Photograph_of_A_Woman_with_a_Hay_Stack_-_NARA_-_7829555.jpg), [William Henry Fox Talbot](https://commons.wikimedia.org/wiki/File:The_Haystack.jpg), and [Metropolitan Museum of Art / CC0](https://commons.wikimedia.org/wiki/File:Haystacks-_Autumn_MET_DP124093.jpg).
+Cover rotation uses the local haystack images supplied in the project root. They are referenced by the `USER_COVER_PHOTOS` array in `script.js`, so adding or removing an image only requires updating that one list.
