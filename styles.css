@@ -56,3 +56,11 @@ footer{max-width:940px;margin:0 auto;padding:18px 0 26px;display:flex;justify-co
 .tweezer-track b{transform:translateX(-50%)}
 @media(max-width:760px){.haysweeper-modal .haysweeper-board{width:min(74vw,280px)}.tweezer-track{height:66px}.tweezer-track b{top:8px;height:48px}.wheel-info small{line-height:1.35}.conveyor-item{min-height:122px}}
 @media(max-width:760px) and (max-height:620px){.haysweeper-modal .haysweeper-board{width:min(66vw,238px)}}
+
+/* Haysweeper uses distinct, high-contrast field markers rather than generic text glyphs. */
+.haysweeper-board button.revealed{font-weight:bold}
+.haysweeper-board .hs-number{display:grid;place-items:center;width:100%;height:100%;font-size:clamp(18px,2.7vw,25px);line-height:1;text-shadow:0 1px #08121a}
+.haysweeper-board .number-1 .hs-number{color:#7ed7ff}.haysweeper-board .number-2 .hs-number{color:#9ee76a}.haysweeper-board .number-3 .hs-number{color:#ffc36c}.haysweeper-board .number-4 .hs-number{color:#ff877c}.haysweeper-board .number-5 .hs-number,.haysweeper-board .number-6 .hs-number{color:#f2a4eb}
+.hs-mine{position:relative;display:block;width:22px;height:22px;margin:auto;border-radius:50%;background:radial-gradient(circle at 35% 30%,#758694 0 12%,#303e49 13% 55%,#111a21 57%);box-shadow:0 0 0 2px #0c151b,0 2px 3px #000a}.hs-mine:before,.hs-mine:after,.hs-mine i{content:"";position:absolute;inset:50%;width:30px;height:3px;margin:-1.5px 0 0 -15px;background:#17232b;border-radius:4px}.hs-mine:after{transform:rotate(60deg)}.hs-mine i{display:block;transform:rotate(-60deg)}
+.hs-needle{display:grid;place-items:center;width:100%;height:100%;font-size:clamp(19px,3vw,27px);color:#dff9ff;text-shadow:0 1px #0a1821}.hs-retry{display:block;width:100%;margin-top:8px;min-height:42px}
+@media(max-width:760px){.haysweeper-board .hs-number{font-size:clamp(17px,5vw,23px)}.hs-mine{transform:scale(.88)}.hs-retry{min-height:40px;margin-top:6px}}
