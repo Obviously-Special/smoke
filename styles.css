@@ -49,3 +49,10 @@ footer{max-width:940px;margin:0 auto;padding:18px 0 26px;display:flex;justify-co
 .conveyor-item.sorting{opacity:.18;transform:translateX(-18px) scale(.96)}
 @media(max-width:760px){.haysweeper-modal{height:auto!important;max-height:100dvh!important;overflow:hidden!important}.haysweeper-modal .side-heading{padding:10px 42px 9px 14px}.haysweeper-modal .side-heading h2{font-size:18px}.haysweeper-modal .side-intro{margin:7px 0;font-size:11px;line-height:1.25}.haysweeper-modal .lab-back{margin-bottom:6px}.haysweeper-modal .haysweeper-head{padding:6px;margin-bottom:6px}.haysweeper-modal .haysweeper-board{width:min(74vw,280px);margin:0 auto;gap:2px}.haysweeper-modal .haysweeper-board button{font-size:11px}.haysweeper-modal #labGameStatus{margin:6px 0 0}}
 @media(max-width:760px) and (max-height:620px){.haysweeper-modal .haysweeper-board{width:min(66vw,238px)}.haysweeper-modal .side-intro{font-size:10px}.haysweeper-modal .haysweeper-head{margin-bottom:4px}.haysweeper-modal .lab-back{min-height:32px;padding:5px 8px}}
+
+/* Keep Haysweeper fully visible on short laptop displays without requiring a modal scroll. */
+.haysweeper-modal{max-height:calc(100dvh - 20px);overflow:hidden}
+.haysweeper-modal .haysweeper-board{width:min(100%,520px,calc(100dvh - 290px));margin:0 auto}
+.tweezer-track b{transform:translateX(-50%)}
+@media(max-width:760px){.haysweeper-modal .haysweeper-board{width:min(74vw,280px)}.tweezer-track{height:66px}.tweezer-track b{top:8px;height:48px}.wheel-info small{line-height:1.35}.conveyor-item{min-height:122px}}
+@media(max-width:760px) and (max-height:620px){.haysweeper-modal .haysweeper-board{width:min(66vw,238px)}}
