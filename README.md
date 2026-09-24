@@ -11,7 +11,7 @@ Open `index.html` in any modern browser. There is no build step, server, package
 At the top of `script.js`, change this value before publishing:
 
 ```js
-realGameUrl: "PUT_REAL_STEAM_URL_HERE"
+realGameUrl: "https://store.steampowered.com/app/5159870/Needle_In_A_Haystack_Simulator/"
 ```
 
 `REAL_GAME_URL` is also declared immediately below the configuration object for easy discovery.
