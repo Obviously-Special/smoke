@@ -66,4 +66,5 @@ footer{max-width:940px;margin:0 auto;padding:18px 0 26px;display:flex;justify-co
 .hs-needle{display:grid;place-items:center;width:100%;height:100%;font-size:clamp(19px,3vw,27px);color:#dff9ff;text-shadow:0 1px #0a1821}.hs-retry{display:block;width:100%;margin-top:8px;min-height:42px}
 @media(max-width:760px){.haysweeper-board .hs-number{font-size:clamp(17px,5vw,23px)}.hs-mine{transform:scale(.88)}.hs-retry{min-height:40px;margin-top:6px}}
 @media(max-width:760px){.labs-exit{position:sticky;top:0;z-index:4;width:100%;min-height:42px;margin:0 0 9px;text-align:left;box-shadow:0 3px 10px #09131aaa}}
-.mid-purchase{margin:-8px 0 14px}
+.mid-purchase{position:relative;z-index:1;margin:16px 0 18px;clear:both}
+@media(max-width:760px){.mid-purchase{margin:12px 0 14px}}
